@@ -1,6 +1,6 @@
 // This file contains the implementation of Main's menu helper functions
 // Author: Jamie Beamguard
-// Last Revision: 6/20/21
+// Last Revision: 6/20/2021
 
 #include "menuHelpers.h"
 #include <iostream>
