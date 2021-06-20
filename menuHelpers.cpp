@@ -32,7 +32,7 @@ int mainMenu::menuSelectorHelper(char userInput) {
 			cout << "Good-bye!" << endl;
 			return 0;	// return 0 to exit
 		default:
-			cout << endl << "Error: Please enter a valid character." << endl << endl;
+			cout << endl << "Error: Please enter a valid character!" << endl << endl;
 			return 1;	// go again
 	}
 }
