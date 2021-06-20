@@ -1,8 +1,12 @@
 #include <iostream>
-using namespace std
+using namespace std;
 
-void main() {
-	cout << "Hello World!" << endl;
+int main() {
+	string usInput;
+
+	cout << "Enter a word: " << endl;
+	cin >> usInput;
+	cout << "You wrote: " << endl << usInput << endl;
 
 	return 0;
 }
