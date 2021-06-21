@@ -1,8 +1,12 @@
+#ifndef MENUHELPERS_H
+#define MENUHELPERS_H
+
 // This file contains the declarations of main helper functions
 // Author: Jamie Beamguard
-// Last Revision: 6/20/21
+// Last Revision: 6/21/21
 
-namespace mainMenu {
+namespace mainMenu
+{
 
 	void menuPrintHelper();
 	int menuSelectorHelper(char userInput);
@@ -10,4 +14,6 @@ namespace mainMenu {
 	void viewTeamStatsHelper();
 	void updateGameHelper();
 
-}	// namesp mainMenu closing
+}
+
+#endif // MENUHELPERS_H
