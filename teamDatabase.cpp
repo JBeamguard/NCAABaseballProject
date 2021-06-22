@@ -3,26 +3,23 @@
 // Last Revision: 6/21/2021
 
 #include "teamDatabase.h"
-#include "team.h"
 #include <map>
 #include <string>
 #include <iostream>
 #include <utility>
 
 using namespace std;
-using namespace team;
-using namespace database;
 
 class TeamDatabase {
 private:
-	map<int,Team> database;			// map used as the database structure
+	map<int,team::Team> database;			// map used as the database structure
 public:
 	// default constructor
 	TeamDatabase() = default;
 	// insertTeam adds a new team to the database
-	void insertTeam(Team inputTeam) {
+	void insertTeam(team::Team inputTeam) {
 		int idNum = inputTeam.printID();
-		pair<int,Team> dbItem(idNum,inputTeam);
+		pair<int,team::Team> dbItem(idNum,inputTeam);
 
 		auto dbInsSucc = database.insert(dbItem);	// add the new team
 

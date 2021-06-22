@@ -5,11 +5,13 @@
 // Author: Jamie Beamguard
 // Last Revision: 6/21/2021
 
+#include "team.h"
+
 namespace database
 {
 	class TeamDatabase {
 	public:
-		void insertTeam();
+		void insertTeam(team::Team newTeam);
 		void removeTeam();
 		void updateTeam();
 	};

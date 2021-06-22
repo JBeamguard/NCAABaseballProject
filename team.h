@@ -7,15 +7,19 @@
 
 #include <string>
 
-namespace team {
+using namespace std;
+
+namespace team
+{
 	class Team {
 	public:
+		Team(string,int,int);
 		void updateTeam();
 		void dispStats();
 		void showWins();
 		void showLosses();
 		void printRuns();
-		std::string teamName();
+		string teamName();
 		int printID();
 	};
 }

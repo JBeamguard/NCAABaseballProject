@@ -2,14 +2,13 @@
 // Author: Jamie Beamguard
 // Last Revision: 6/21/2021
 
-#include "team.h"
 #include <string>
 #include <iostream>
 #include <vector>
+#include "team.h"
 #include "game.h"
 
 using namespace game;
-using namespace team;
 using namespace std;
 
 class Team {
@@ -23,11 +22,7 @@ private:
 	vector<Game> gamesLost;		// vector of Game objects
 	int totalRunsScored;
 public:
-	Team(string inputName, int seed, int idNum) {
-		name = inputName;
-		seedNum = seed;
-		teamID = idNum;
-	};
+	Team(string inputName, int seed, int idNum) : name(inputName), seedNum(seed), teamID(idNum) {}
 	// showWins prints the team's wins
 	void showWins() {
 		int i, tmpInt;

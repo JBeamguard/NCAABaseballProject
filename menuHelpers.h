@@ -5,12 +5,14 @@
 // Author: Jamie Beamguard
 // Last Revision: 6/21/21
 
+#include "teamDatabase.h"
+
 namespace mainMenu
 {
 
 	void menuPrintHelper();
 	int menuSelectorHelper(char userInput);
-	void addTeamHelper();
+	void addTeamHelper(database::TeamDatabase database);
 	void viewTeamStatsHelper();
 	void updateGameHelper();
 

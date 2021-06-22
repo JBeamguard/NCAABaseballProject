@@ -7,8 +7,11 @@
 #include <iostream>
 #include "menuHelpers.h"
 #include "teamDatabase.h"
+#include "team.h"
+#include "game.h"
 
 using namespace std;
+using namespace team;
 using namespace mainMenu;
 using namespace database;
 
