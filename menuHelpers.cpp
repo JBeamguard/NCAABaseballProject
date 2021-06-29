@@ -8,26 +8,27 @@
 #include "teamDatabase.h"
 #include "team.h"
 
-using namespace team;
 using namespace std;
-using namespace database;
-
 
 // Will print the context menu in Main
-void mainMenu::menuPrintHelper() {
+void menuPrintHelper() {
 	cout << "What would you like to do? (case sensitive)" << endl;
 	cout << "A - Add a team" << endl;
-	cout << "V - View a team's stats" << endl;
+	cout << "T - View all teams in the database" << endl;
 	cout << "U - Update a game" << endl;
+	cout << "V - View a team's stats" << endl;
 	cout << "X - Exit the program" << endl;
 }
 
 // Used to help the context menu move to the next state in Main
-int mainMenu::menuSelectorHelper(char userInput) {
+int menuSelectorHelper(char userInput, TeamDatabase teamMap) {
 	switch(userInput) {
 		case 'A':	// User wants to add a teams
-			// addTeamHelper();
+			addTeamHelper(teamMap);
 			return 1;	// request success
+		case 'T':	// View all teams
+			viewAllTeamsHelper(teamMap);
+			return 1;
 		case 'V':	// User wants to view a teams stats
 			// viewTeamStatsHelper();
 			return 1;	// request success
@@ -36,7 +37,7 @@ int mainMenu::menuSelectorHelper(char userInput) {
 			return 1;	// request success
 		case 'X':	// Exit the program
 			cout << "Good-bye!" << endl;
-			return 0;	// return 0 to exit
+			return 0;	// return 0 to exit the progran
 		default:
 			cout << endl << "Error: Please enter a valid character!" << endl << endl;
 			return 1;	// go again
@@ -44,7 +45,7 @@ int mainMenu::menuSelectorHelper(char userInput) {
 }
 
 // Used to add a team to the main database
-void mainMenu::addTeamHelper(TeamDatabase teamMap) {
+void addTeamHelper(TeamDatabase teamMap) {
 	string name;
 	int seed;
 	int id;
@@ -63,4 +64,16 @@ void mainMenu::addTeamHelper(TeamDatabase teamMap) {
 	teamMap.insertTeam(newTeam);		// insert the new team item
 
 	cout << "Team added successfully." << endl;
+}
+
+void viewAllTeamsHelper(TeamDatabase teamMap) {
+	int i;
+
+	cout << "All teams are as follows:" << endl;
+
+	// use a for loop to print all team names
+	for(i=0; i<teamMap.dbSize(); i++) {
+		cout << teamMap.viewTeamName(i) << endl;
+	}
+
 }

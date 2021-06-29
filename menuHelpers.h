@@ -7,15 +7,11 @@
 
 #include "teamDatabase.h"
 
-namespace mainMenu
-{
-
-	void menuPrintHelper();
-	int menuSelectorHelper(char userInput);
-	void addTeamHelper(database::TeamDatabase database);
-	void viewTeamStatsHelper();
-	void updateGameHelper();
-
-}
+void menuPrintHelper();
+int menuSelectorHelper(char userInput, TeamDatabase database);
+void addTeamHelper(TeamDatabase database);
+void viewTeamStatsHelper();
+void updateGameHelper();
+void viewAllTeamsHelper(TeamDatabase database);
 
 #endif // MENUHELPERS_H

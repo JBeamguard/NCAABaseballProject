@@ -3,32 +3,35 @@
 // Last Revision: 6/21/2021
 
 #include "teamDatabase.h"
-#include <map>
 #include <string>
 #include <iostream>
 #include <utility>
 
 using namespace std;
 
-class TeamDatabase {
-private:
-	map<int,team::Team> database;			// map used as the database structure
-public:
-	// default constructor
-	TeamDatabase() = default;
-	// insertTeam adds a new team to the database
-	void insertTeam(team::Team inputTeam) {
-		int idNum = inputTeam.printID();
-		pair<int,team::Team> dbItem(idNum,inputTeam);
+// insertTeam adds a new team to the database
+void TeamDatabase::insertTeam(Team inputTeam) {
+	int idNum = inputTeam.getID();
 
-		auto dbInsSucc = database.insert(dbItem);	// add the new team
+	pair<int,Team> dbItem(idNum,inputTeam);	// Create a new map object
 
-		if(dbInsSucc.second == false) {
-			cout << "Team is already added." << endl;
-		}
-	};
+	auto dbInsSucc = database.insert(dbItem);	// add the new team to the map
 
-	void updateTeam();
+	if(dbInsSucc.second == false) {				// If second part of dbInsSucc == 0, team is already in the database
+		cout << "Team is already added." << endl;
+	}
+}
 
-	void removeTeam();
-};
+// Return the number of items in the database
+int TeamDatabase::dbSize() {
+	return database.size();
+}
+
+// Return the name of the team at the key ID
+string TeamDatabase::viewTeamName(int key) {
+	return database.at(key).teamName();
+}
+
+//void TeamDatabase::updateTeam();
+
+//void TeamDatabase::removeTeam();

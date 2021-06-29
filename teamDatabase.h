@@ -6,15 +6,21 @@
 // Last Revision: 6/21/2021
 
 #include "team.h"
+#include <map>
 
-namespace database
-{
-	class TeamDatabase {
-	public:
-		void insertTeam(team::Team newTeam);
-		void removeTeam();
-		void updateTeam();
-	};
-}
+using namespace std;
+
+class TeamDatabase {
+private:
+	map<int,Team> database;			// map used as the database structure
+public:
+	TeamDatabase() = default;			// Default constructor
+	~TeamDatabase() = default;			// Default destructor
+	void insertTeam(Team newTeam);
+	void removeTeam();
+	void updateTeam();
+	int dbSize();
+	string viewTeamName(int key);
+};
 
 #endif // TEAMDATABASE_H

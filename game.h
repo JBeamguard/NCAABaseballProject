@@ -9,20 +9,19 @@
 
 using namespace std;
 
-namespace game
-{
-	class Game {
-	private:
-		int homeScore;
-		int awayScore;
-		string homeTeam;
-		string awayTeam;
-		int gameNumber;
-		string winningTeam;
-	public:
-		int printGameNum();								// print game number
-		string printOpponent(string teamName);	// print opponent in game
-	};
-}
+class Game {
+private:
+	int homeScore;
+	int awayScore;
+	string homeTeam;
+	string awayTeam;
+	int gameNumber;
+	string winningTeam;
+public:
+	Game(int, string, string, int, int, string);	// Constructor
+	~Game() = default;									// Default destructor
+	int printGameNum();									// print game number
+	string printOpponent(string teamName);			// print opponent in game
+};
 
 #endif // GAME_H

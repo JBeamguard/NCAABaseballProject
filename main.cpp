@@ -11,13 +11,10 @@
 #include "game.h"
 
 using namespace std;
-using namespace team;
-using namespace mainMenu;
-using namespace database;
 
 int main() {
 	int selection = -1;
-	TeamDatabase teamMap;
+	static TeamDatabase teamMap;
 
 	while(1) {
 		char userInput;
@@ -26,7 +23,7 @@ int main() {
 
 		// get the user's input and react accordingly
 		cin >> userInput;
-		selection = menuSelectorHelper(userInput);
+		selection = menuSelectorHelper(userInput, teamMap);
 
 		if(!selection) return 0;	// Exit program is chosen
 	}
