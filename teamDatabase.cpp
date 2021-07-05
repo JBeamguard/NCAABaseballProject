@@ -32,6 +32,10 @@ string TeamDatabase::viewTeamName(int key) {
 	return database.at(key).teamName();
 }
 
+int TeamDatabase::viewTeamSeed(int key) {
+	return database.at(key).teamSeed();
+}
+
 //void TeamDatabase::updateTeam();
 
 //void TeamDatabase::removeTeam();

@@ -17,11 +17,11 @@ void menuPrintHelper() {
 	cout << "T - View all teams in the database" << endl;
 	cout << "U - Update a game" << endl;
 	cout << "V - View a team's stats" << endl;
-	cout << "X - Exit the program" << endl;
+	cout << "X - Exit the program" << endl << endl;
 }
 
 // Used to help the context menu move to the next state in Main
-int menuSelectorHelper(char userInput, TeamDatabase teamMap) {
+int menuSelectorHelper(char userInput, TeamDatabase& teamMap) {
 	switch(userInput) {
 		case 'A':	// User wants to add a teams
 			addTeamHelper(teamMap);
@@ -45,35 +45,41 @@ int menuSelectorHelper(char userInput, TeamDatabase teamMap) {
 }
 
 // Used to add a team to the main database
-void addTeamHelper(TeamDatabase teamMap) {
+void addTeamHelper(TeamDatabase& teamMap) {
 	string name;
 	int seed;
 	int id;
 
 	// Gather the needed information
-	cout << "Enter team name: ";
+	cout << endl << "Enter team name: ";
 	cin >> name;
 	cout << endl << "Enter seed number: ";
 	cin >> seed;
-	cout << endl << "Enter an ID number: ";
-	cin >> id;
 	cout << endl;
+
+	if(!teamMap.dbSize()) {				// If first team, ID = 0
+		id = 0;
+	} else {
+		id = teamMap.dbSize();		// Else generate the ID Number
+	}
 
 	Team newTeam(name, seed, id);		// instance a Team item using info
 
 	teamMap.insertTeam(newTeam);		// insert the new team item
 
-	cout << "Team added successfully." << endl;
+	cout << "Team added successfully." << endl << endl;
 }
 
-void viewAllTeamsHelper(TeamDatabase teamMap) {
+void viewAllTeamsHelper(TeamDatabase& teamMap) {
 	int i;
 
 	cout << "All teams are as follows:" << endl;
 
 	// use a for loop to print all team names
 	for(i=0; i<teamMap.dbSize(); i++) {
-		cout << teamMap.viewTeamName(i) << endl;
+		cout << teamMap.viewTeamName(i) << " (" << teamMap.viewTeamSeed(i) << ")" << endl;
 	}
+
+	cout << endl;
 
 }

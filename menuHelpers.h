@@ -8,10 +8,10 @@
 #include "teamDatabase.h"
 
 void menuPrintHelper();
-int menuSelectorHelper(char userInput, TeamDatabase database);
-void addTeamHelper(TeamDatabase database);
+int menuSelectorHelper(char userInput, TeamDatabase& database);
+void addTeamHelper(TeamDatabase& database);
 void viewTeamStatsHelper();
 void updateGameHelper();
-void viewAllTeamsHelper(TeamDatabase database);
+void viewAllTeamsHelper(TeamDatabase& database);
 
 #endif // MENUHELPERS_H

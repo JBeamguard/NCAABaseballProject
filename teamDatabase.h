@@ -21,6 +21,7 @@ public:
 	void updateTeam();
 	int dbSize();
 	string viewTeamName(int key);
+	int viewTeamSeed(int key);
 };
 
 #endif // TEAMDATABASE_H

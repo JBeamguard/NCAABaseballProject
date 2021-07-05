@@ -75,6 +75,10 @@ string Team::teamName() {
 	return name;
 }
 
+int Team::teamSeed() {
+	return seedNum;
+}
+
 // return the team's ID number
 int Team::getID() {
 	return teamID;

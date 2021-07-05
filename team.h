@@ -30,6 +30,7 @@ public:
 	void showLosses();
 	void printRuns();
 	string teamName();
+	int teamSeed();
 	int getID();
 };
 
