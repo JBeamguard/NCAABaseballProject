@@ -3,10 +3,11 @@
 
 // Header file for the teamDatabase class
 // Author: Jamie Beamguard
-// Last Revision: 6/21/2021
+// Last Revision: 7/6/2021
 
 #include "team.h"
 #include <map>
+#include <utility>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ public:
 	void removeTeam();
 	void updateTeam();
 	int dbSize();
+	Team& at(int key);
 	string viewTeamName(int key);
 	int viewTeamSeed(int key);
 };

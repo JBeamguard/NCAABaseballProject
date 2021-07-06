@@ -3,7 +3,7 @@
 
 // Header file for the team class
 // Author: Jamie Beamguard
-// Last Revision: 6/21/2021
+// Last Revision: 7/6/2021
 
 #include <string>
 #include <vector>
@@ -20,7 +20,7 @@ private:
 	int losses;
 	vector<Game> gamesWon;		// vector of Game objects
 	vector<Game> gamesLost;		// vector of Game objects
-	int totalRunsScored;
+	int totalRunsScored = 0;
 public:
 	Team(string, int, int);		// Team constructor
 	~Team() = default;			// Default destructor
@@ -32,6 +32,9 @@ public:
 	string teamName();
 	int teamSeed();
 	int getID();
+	void addWin(Game);
+	void addLoss(Game);
+	void addRuns(int runs);
 };
 
 #endif // TEAM_H

@@ -1,6 +1,6 @@
 // This file contains the implementation of the team class
 // Author: Jamie Beamguard
-// Last Revision: 6/29/2021
+// Last Revision: 7/6/2021
 
 #include <iostream>
 #include "team.h"
@@ -14,6 +14,21 @@ Team::Team(string teamName, int teamSeed, int idNum) {
 	teamID = idNum;
 }
 
+// Add a win to the team
+void Team::addWin(Game gameObj) {
+	gamesWon.push_back(gameObj);
+}
+
+// Add a loss to the team
+void Team::addLoss(Game gameObj) {
+	gamesLost.push_back(gameObj);
+}
+
+// Increase the team's total runs
+void Team::addRuns(int runs) {
+	totalRunsScored += runs;
+}
+
 // showWins prints the team's wins
 void Team::showWins() {
 	int i, tmpInt;
@@ -21,11 +36,11 @@ void Team::showWins() {
 
 	cout << "Games Won: " << endl;
 	if(gamesWon.empty()) {
-		cout << "\tNo wins" << endl;
+		cout << "  No wins :(" << endl;
 	} else {
 		// use a loop to print the game number and opponent beaten
 		for(i=0; i<gamesWon.size(); i++) {
-			cout << "\tGame ";
+			cout << "  Game ";
 			tmpInt =  gamesWon[i].printGameNum();
 			cout << tmpInt << "; beat ";
 			tmpString = gamesWon[i].printOpponent(name);
@@ -42,11 +57,11 @@ void Team::showLosses() {
 	cout << "Games Lost: " << endl;
 	// if team is undefeated
 	if(gamesLost.empty()) {
-		cout << "\tTeam is undefeated!" << endl;
+		cout << "  Team is undefeated!" << endl;
 	} else {
 		// use a loop to print the game number and opponent lost to
 		for(i=0; i<gamesLost.size(); i++) {
-			cout << "\tGame ";
+			cout << "  Game ";
 			tmpInt = gamesLost[i].printGameNum();
 			cout << tmpInt << "; lost to ";
 			tmpString = gamesWon[i].printOpponent(name);
@@ -64,10 +79,11 @@ void Team::printRuns() {
 void Team::dispStats() {
 	wins = gamesWon.size();
 	losses = gamesLost.size();
-	cout << "W/L" << wins << "/" << losses << endl;
+	cout << "W/L : " << wins << "/" << losses << endl;
 	showWins();
 	showLosses();
 	printRuns();
+	cout << endl;
 }
 
 // return the name of the team

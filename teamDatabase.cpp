@@ -1,6 +1,6 @@
 // This file contains the implementation of the team database for the program
 // Author: Jamie Beamguard
-// Last Revision: 6/21/2021
+// Last Revision: 7/6/2021
 
 #include "teamDatabase.h"
 #include <string>
@@ -34,6 +34,10 @@ string TeamDatabase::viewTeamName(int key) {
 
 int TeamDatabase::viewTeamSeed(int key) {
 	return database.at(key).teamSeed();
+}
+
+Team& TeamDatabase::at(int key) {
+	return database.at(key);		// Return the team at the given key
 }
 
 //void TeamDatabase::updateTeam();
